@@ -107,4 +107,31 @@ if(femaleusers.isEmpty()) {
 	}
 	return ResponseEntity.status(HttpStatus.OK).body(result);
  }
-}
+
+
+ public ResponseEntity<?> searchByName(String letters) {
+	List<User> users=userdao.searchByName("%"+letters+"%");
+	if(users.isEmpty()) {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no matching users found with lettrs: "+letters);
+	}
+	else {
+		return ResponseEntity.status(HttpStatus.OK).body(users);
+	}
+	}
+
+
+ public ResponseEntity<?> searchByEmail(String letters) {
+	 List<User> users=userdao.searchByEmail("%"+letters+"%");
+		if(users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no matching users found with lettrs: "+letters);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(users);
+		}
+ }
+	
+ }
+
+
+ 
+

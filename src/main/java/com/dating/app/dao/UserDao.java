@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.dating.app.entity.User;
 import com.dating.app.repository.UserRepository;
-
 import com.dating.app.util.UserGender;
 
 @Repository
@@ -35,6 +34,15 @@ public class UserDao {
 	public Optional<User> findUserById(int id) {
 		
 		return userrepository.findById(id);
+	}
+
+	public List<User> searchByName(String letters) {
+		
+		return userrepository.searchByName(letters);
+	}
+
+	public List<User> searchByEmail(String letters) {
+		return userrepository.searchByEmail(letters);
 	}
 
 	
